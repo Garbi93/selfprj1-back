@@ -4,10 +4,9 @@ import com.example.selfprj1back.domain.Board;
 import com.example.selfprj1back.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -39,5 +38,10 @@ public class BoardController {
             // 잘 못 되었다면 internalServer 에러를 반환 해주자
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("list")
+    public List<Board> list() {
+        return service.list();
     }
 }
