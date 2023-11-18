@@ -17,4 +17,22 @@ public class BoardService {
         // mapper 에서 1을 못 받으면 false 를 controller에 반환 한다.
         return mapper.insert(board) == 1;
     }
+
+    // Controller 에서 보내준 board 데이터 를 검증 하는 service
+    public boolean validate(Board board) {
+        // board에 받아온 값이 null 이면 false return
+        if(board == null){
+            return false;
+        }
+
+        // 받은 board가 content 가 null 이거나 비어있는 값 이면 false return
+        if(board.getContent() == null || board.getContent().isBlank()){
+            return false;
+        }
+        // 받은 board가 title (제목)이 null 이거나 비어있는 값이면 false return
+        if(board.getTitle() == null || board.getTitle().isBlank()){
+            return false;
+        }
+        return true;
+    }
 }
