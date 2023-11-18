@@ -20,6 +20,10 @@ public class BoardController {
     // json 으로 넘어온 값을 받는 @RequestBody 어노테이션을 써서 Board DTO에 저장 시키고 board 라는 변수로 사용 한다.
     // ResponseEntity는 서버의 응답 코드를 반환 할 수 있다.
     public ResponseEntity add(@RequestBody Board board) {
+        // 잠시 delay를 주는 코드
+        // 사옹하고 싶으면 throw exception 코드를 작성해주어야 한다.
+        // Thread.sleep(2000);
+
         // json으로 받은 board의 데이터를 service 에서 검증요청 보내보기
         if(!service.validate(board)){
         // 검증이 실패시 badRequest 응답 하기
