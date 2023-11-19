@@ -15,4 +15,9 @@ public class UserService {
     public boolean add(User user) {
         return mapper.addUser(user) == 1;
     }
+
+
+    public String checkByUserId(String userId) {
+        return mapper.checkByUserId(userId);
+    }
 }
