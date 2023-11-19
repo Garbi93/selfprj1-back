@@ -2,6 +2,8 @@ package com.example.selfprj1back.domain;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class User {
     private Integer id;
@@ -10,4 +12,5 @@ public class User {
     private String password;
     private String email;
     private String phone;
+    private LocalDateTime inserted;
 }
