@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -36,4 +38,11 @@ public interface UserMapper {
         WHERE phone = #{phone}
         """)
     String checkByPhone(String phone);
+
+    @Select("""
+        SELECT * FROM user
+        ORDER BY inserted DESC 
+        """)
+    List<User> selectAll();
+
 }

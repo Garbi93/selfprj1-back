@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.apache.catalina.startup.Tomcat;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -60,5 +62,9 @@ public class UserService {
         }
 
         return true;
+    }
+
+    public List<User> list() {
+        return mapper.selectAll();
     }
 }

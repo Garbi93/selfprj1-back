@@ -7,6 +7,8 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/user")
@@ -63,5 +65,9 @@ public class UserController {
         }
     }
 
+    @GetMapping("list")
+    public List<User> list() {
+        return service.list();
+    }
 
 }
