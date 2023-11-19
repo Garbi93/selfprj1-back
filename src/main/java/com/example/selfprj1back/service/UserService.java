@@ -20,4 +20,16 @@ public class UserService {
     public String checkByUserId(String userId) {
         return mapper.checkByUserId(userId);
     }
+
+    public String checkByNickName(String nickName) {
+        return mapper.checkByNickName(nickName);
+    }
+
+    public String checkByEmail(String email) {
+        return mapper.checkByEmail(email);
+    }
+
+    public String checkByPhone(String phone) {
+        return mapper.checkByPhone(phone);
+    }
 }

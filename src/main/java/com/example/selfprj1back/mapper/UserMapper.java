@@ -19,4 +19,21 @@ public interface UserMapper {
         WHERE userId = #{userId}
         """)
     String checkByUserId(String userId);
+    @Select("""
+        SELECT nickName FROM user
+        WHERE nickName = #{nickName}
+        """)
+    String checkByNickName(String nickName);
+
+    @Select("""
+        SELECT email FROM user
+        WHERE email = #{email}
+        """)
+    String checkByEmail(String email);
+
+    @Select("""
+        SELECT phone FROM user
+        WHERE phone = #{phone}
+        """)
+    String checkByPhone(String phone);
 }

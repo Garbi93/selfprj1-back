@@ -28,4 +28,31 @@ public class UserController {
        }
     }
 
+    @GetMapping(value = "check", params = "nickName")
+    public ResponseEntity checkNickName(String nickName) {
+        if( service.checkByNickName(nickName) == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            return ResponseEntity.ok().build();
+        }
+    }
+
+    @GetMapping(value = "check", params = "email")
+    public ResponseEntity checkEmail(String email) {
+        if( service.checkByEmail(email) == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            return ResponseEntity.ok().build();
+        }
+    }
+    @GetMapping(value = "check", params = "phone")
+    public ResponseEntity checkPhone(String phone) {
+        if( service.checkByPhone(phone) == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            return ResponseEntity.ok().build();
+        }
+    }
+
+
 }
