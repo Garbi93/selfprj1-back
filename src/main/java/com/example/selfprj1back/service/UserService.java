@@ -32,4 +32,33 @@ public class UserService {
     public String checkByPhone(String phone) {
         return mapper.checkByPhone(phone);
     }
+
+    // 회원 가입 할때에 공백인 상태가 들어가면 false를 리턴 해주기 위한 조건 설정
+    public boolean validate(User user) {
+        if(user == null) {
+            return false;
+        }
+
+        if(user.getEmail().isBlank()){
+            return false;
+        }
+
+        if(user.getPassword().isBlank()){
+            return false;
+        }
+
+        if(user.getNickName().isBlank()) {
+            return false;
+        }
+
+        if(user.getUserId().isBlank()) {
+            return false;
+        }
+
+        if(user.getPhone().isBlank()) {
+            return false;
+        }
+
+        return true;
+    }
 }

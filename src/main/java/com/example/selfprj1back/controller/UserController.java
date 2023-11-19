@@ -15,8 +15,17 @@ public class UserController {
     private final UserService service;
 
     @PostMapping("add")
-    public void add(@RequestBody User user) {
-        service.add(user);
+    public ResponseEntity add(@RequestBody User user) {
+        // 회원가입시 공백으로 가입을 막기위해 설정
+        if(service.validate(user)){
+            if(service.add(user)){
+                return ResponseEntity.ok().build();
+            }else  {
+                return ResponseEntity.internalServerError().build();
+            }
+        }else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping(value = "check", params = "userId")
