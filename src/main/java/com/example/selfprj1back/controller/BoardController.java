@@ -61,10 +61,20 @@ public class BoardController {
 
     @PutMapping("edit")
     public ResponseEntity edit(@RequestBody Board board) {
-        if(service.update(board)) {
-          return ResponseEntity.ok().build();
+        // 검증 로직으로 만약 수정 테이터가 null이나 빈값인지를 먼저 체크 하게 코드 작성
+        if(service.validate(board)){
+            // update 로직이 잘 작동 했으면 코드 식행
+            if(service.update(board)) {
+              return ResponseEntity.ok().build();
+            } else {
+                return ResponseEntity.internalServerError().build();
+            }
         } else {
-            return ResponseEntity.internalServerError().build();
+            return ResponseEntity.badRequest().build();
         }
     }
+    
+
+
+
 }
