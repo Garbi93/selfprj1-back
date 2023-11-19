@@ -70,4 +70,12 @@ public class UserController {
         return service.list();
     }
 
+    @GetMapping
+    public ResponseEntity<User> view(String id) {
+        User user = service.getUser(id);
+
+            return ResponseEntity.ok(user);
+
+    }
+
 }

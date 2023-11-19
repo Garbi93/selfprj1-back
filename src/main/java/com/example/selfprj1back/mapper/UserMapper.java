@@ -45,4 +45,10 @@ public interface UserMapper {
         """)
     List<User> selectAll();
 
+
+    @Select("""
+        SELECT * FROM user
+        WHERE id = #{id}
+        """)
+    User selectById(String id);
 }

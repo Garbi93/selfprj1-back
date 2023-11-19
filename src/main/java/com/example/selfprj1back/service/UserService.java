@@ -67,4 +67,9 @@ public class UserService {
     public List<User> list() {
         return mapper.selectAll();
     }
+
+
+    public User getUser(String id) {
+        return mapper.selectById(id);
+    }
 }
