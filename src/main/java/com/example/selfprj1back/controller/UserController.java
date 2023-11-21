@@ -70,14 +70,15 @@ public class UserController {
         return service.list();
     }
 
-    @GetMapping("id/{id}")
-    public User get(@PathVariable String id) {
-        return service.get(id);
+    @GetMapping
+    public void view (String id) {
+        System.out.println("id = " + id);
+
     }
 
-    @DeleteMapping("remove/{id}")
-    public void remove(@PathVariable String id) {
-         service.remove(id);
-    }
+
+
+
+
 
 }
