@@ -3,7 +3,6 @@ package com.example.selfprj1back.service;
 import com.example.selfprj1back.domain.User;
 import com.example.selfprj1back.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.startup.Tomcat;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -69,7 +68,11 @@ public class UserService {
     }
 
 
-    public User getUser(String id) {
+    public User get(String id) {
         return mapper.selectById(id);
+    }
+
+    public boolean remove(String id) {
+        return mapper.deleteById(id) == 1;
     }
 }

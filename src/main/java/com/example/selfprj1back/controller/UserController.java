@@ -70,12 +70,14 @@ public class UserController {
         return service.list();
     }
 
-    @GetMapping
-    public ResponseEntity<User> view(String id) {
-        User user = service.getUser(id);
+    @GetMapping("id/{id}")
+    public User get(@PathVariable String id) {
+        return service.get(id);
+    }
 
-            return ResponseEntity.ok(user);
-
+    @DeleteMapping("remove/{id}")
+    public void remove(@PathVariable String id) {
+         service.remove(id);
     }
 
 }

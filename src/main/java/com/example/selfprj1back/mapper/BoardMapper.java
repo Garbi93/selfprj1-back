@@ -27,7 +27,7 @@ public interface BoardMapper {
         """)
     Board selectById(Integer id);
 
-    @Delete("""
+    @Delete(""" 
         DELETE FROM board
         WHERE id = #{id}
         """)

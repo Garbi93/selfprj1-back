@@ -1,6 +1,7 @@
 package com.example.selfprj1back.mapper;
 
 import com.example.selfprj1back.domain.User;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -51,4 +52,10 @@ public interface UserMapper {
         WHERE id = #{id}
         """)
     User selectById(String id);
+
+    @Delete("""
+        DELETE FROM user
+        WHERE id = #{id}
+        """)
+    int deleteById(String id);
 }
